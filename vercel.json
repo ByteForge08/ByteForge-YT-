@@ -1,51 +1,17 @@
 {
   "functions": {
     "api/download.py": {
-      "runtime": "python3.9",
-      "maxDuration": 60
-    },
-    "api/info.py": {
-      "runtime": "python3.9",
-      "maxDuration": 30
+      "runtime": "python3.9"
     }
   },
   "routes": [
     {
-      "src": "/css/(.*)",
-      "dest": "/public/css/$1"
-    },
-    {
-      "src": "/js/(.*)",
-      "dest": "/public/js/$1"
-    },
-    {
-      "src": "/(.*\\.(png|jpg|jpeg|gif|ico|svg))",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/download/video",
-      "dest": "/api/download.py",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/download/audio",
-      "dest": "/api/download.py",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/api/info",
-      "dest": "/api/info.py",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/",
-      "dest": "/public/index.html",
-      "methods": ["GET"]
+      "src": "/download/(.*)",
+      "dest": "/api/download.py"
     },
     {
       "src": "/(.*)",
-      "dest": "/public/index.html",
-      "methods": ["GET"]
+      "dest": "/public/index.html"
     }
   ]
 }
