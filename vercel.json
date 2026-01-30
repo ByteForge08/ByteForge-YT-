@@ -1,8 +1,22 @@
 {
+  "functions": {
+    "api/**/*.py": {
+      "runtime": "python3.9",
+      "maxDuration": 60
+    }
+  },
   "routes": [
     {
-      "src": "/download/(.*)",
+      "src": "/download/video",
       "dest": "/api/download.py"
+    },
+    {
+      "src": "/download/audio", 
+      "dest": "/api/download.py"
+    },
+    {
+      "src": "/api/info",
+      "dest": "/api/info.py"
     },
     {
       "src": "/(.*)",
