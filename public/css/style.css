@@ -1,0 +1,207 @@
+:root {
+    --bg-deep: #1A2B3A;
+    --bg-main: #283F52;
+    --bg-card: #334E68;
+    --accent: #38BDF8;
+    --text-white: #F1F5F9;
+    --text-dim: #94A3B8;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-deep);
+    background-image: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-main) 100%);
+    color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    min-height: 100vh; 
+    position: relative;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.footer b {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+a:has(.creator-icon) {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    z-index: 10;
+}
+
+.creator-icon {
+    height: 80px;
+    width: auto;
+    border-radius: 50%;
+    border: 2px solid transparent; 
+    object-fit: cover;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.creator-icon:hover { 
+    transform: scale(1.05); 
+    border-color: var(--accent);
+    filter: drop-shadow(0 6px 15px rgba(56, 189, 248, 0.4));
+}
+
+@media (max-width: 950px) {
+    a:has(.creator-icon) {
+        position: relative;
+        left: 0;
+        top: 0;
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+.site-logo {
+    display: block;
+    width: min(500px, 90vw);
+    height: auto;
+    margin: 20px auto 10px auto;
+    filter: drop-shadow(0 12px 30px rgba(0,0,0,0.6));
+    object-fit: contain;
+    position: relative;
+    z-index: 10;
+}
+
+.container {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    width: min(420px, 90vw);
+    text-align: center;
+    margin-top: 10px;
+}
+
+#urlInput {
+    width: 100%;
+    padding: 14px;
+    background: var(--bg-deep);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: white;
+    margin-bottom: 15px;
+    outline: none;
+    font-size: 16px;
+}
+
+#urlInput:focus {
+    border-color: var(--accent);
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-download-video, .btn-download-audio {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.btn-download-video {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-download-audio {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-download-video:hover:not(:disabled) {
+    background-color: #219653;
+    transform: translateY(-2px);
+}
+
+.btn-download-audio:hover:not(:disabled) {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.btn-download-video:disabled,
+.btn-download-audio:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.github-footer-link {
+    position: fixed; 
+    bottom: 20px; 
+    left: 20px; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px;
+    text-decoration: none; 
+    color: var(--text-dim); 
+    font-family: monospace;
+    font-size: 0.8rem; 
+    z-index: 10; 
+    padding: 8px 12px; 
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px; 
+    backdrop-filter: blur(5px); 
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.github-footer-link:hover { 
+    color: var(--accent); 
+    border-color: var(--accent); 
+    transform: translateY(-2px); 
+}
+
+.github-footer-link img { 
+    height: 20px; 
+    width: auto; 
+}
+
+@media (max-width: 600px) {
+    .github-footer-link { 
+        bottom: 10px; 
+        left: 10px; 
+        font-size: 0.7rem; 
+    }
+    
+    .site-logo {
+        width: 95vw;
+        margin-bottom: 5px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}

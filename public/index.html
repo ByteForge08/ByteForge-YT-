@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteForgeYT | Download YouTube</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <a href="https://github.com/ByteForge08" target="_blank">
+        <img src="/icon.png" class="creator-icon" alt="Criador">
+    </a>
+
+    <img src="/logo.png" class="site-logo" alt="Logo">
+
+    <div class="container">
+        <input type="text" id="urlInput" placeholder="Cole o link do YouTube aqui...">
+        
+        <div class="button-group">
+            <button onclick="baixarVideo()" class="btn-download-video" id="btnVideo">
+                📥 Baixar MP4
+            </button>
+            <button onclick="baixarAudio()" class="btn-download-audio" id="btnAudio">
+                🎵 Baixar MP3
+            </button>
+        </div>
+
+        <div id="loading" style="display:none; margin-top:15px; color:#38BDF8;">
+            ⏳ Processando download...
+        </div>
+
+        <div class="footer">
+            <p>Use com responsabilidade. Respeite os direitos autorais.</p>
+            &copy; 2026 <b>ByteForge Dev</b>
+        </div>
+    </div>
+
+    <a href="https://github.com/ByteForge08" target="_blank" class="github-footer-link">
+        <img src="/git.png" alt="GitHub">
+        <span>ByteForge08</span>
+    </a>
+
+    <script>
+    function setLoading(show) {
+        document.getElementById('loading').style.display = show ? 'block' : 'none';
+        document.getElementById('btnVideo').disabled = show;
+        document.getElementById('btnAudio').disabled = show;
+    }
+    
+    function baixarVideo() {
+        const url = document.getElementById('urlInput').value.trim();
+        if (!url) {
+            alert('Cole um link do YouTube!');
+            return;
+        }
+        
+        setLoading(true);
+        
+        const downloadUrl = `/download/video?url=${encodeURIComponent(url)}`;
+        const win = window.open(downloadUrl, '_blank');
+        
+        if (!win) {
+            alert('Permita popups para fazer o download!');
+        }
+        
+        setTimeout(() => setLoading(false), 3000);
+    }
+    
+    function baixarAudio() {
+        const url = document.getElementById('urlInput').value.trim();
+        if (!url) {
+            alert('Cole um link do YouTube!');
+            return;
+        }
+        
+        setLoading(true);
+        
+        const downloadUrl = `/download/audio?url=${encodeURIComponent(url)}`;
+        const win = window.open(downloadUrl, '_blank');
+        
+        if (!win) {
+            alert('Permita popups para fazer o download!');
+        }
+        
+        setTimeout(() => setLoading(false), 3000);
+    }
+    
+    // Enter key support
+    document.getElementById('urlInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            baixarVideo();
+        }
+    });
+    </script>
+</body>
+</html>
