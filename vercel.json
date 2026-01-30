@@ -1,11 +1,11 @@
 {
   "functions": {
     "api/download.py": {
-      "runtime": "python@3.9",
+      "runtime": "python3.9",
       "maxDuration": 60
     },
     "api/info.py": {
-      "runtime": "python@3.9",
+      "runtime": "python3.9",
       "maxDuration": 30
     }
   },
@@ -25,20 +25,17 @@
     {
       "src": "/download/video",
       "dest": "/api/download.py",
-      "methods": ["GET"],
-      "continue": true
+      "methods": ["GET"]
     },
     {
       "src": "/download/audio",
       "dest": "/api/download.py",
-      "methods": ["GET"],
-      "continue": true
+      "methods": ["GET"]
     },
     {
       "src": "/api/info",
       "dest": "/api/info.py",
-      "methods": ["GET"],
-      "continue": true
+      "methods": ["GET"]
     },
     {
       "src": "/",
